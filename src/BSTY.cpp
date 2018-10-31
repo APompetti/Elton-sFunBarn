@@ -135,6 +135,8 @@ void BSTY::printTreePre(NodeT *n) {
     }
     else{
         n->printNode();
+        //cout << findBalance(n) << endl;
+        n->printBalance();
         printTreePre(n->left);
         printTreePre(n->right);
     }
@@ -213,20 +215,30 @@ NodeT *BSTY::find(string x) {
 
 }
 
+int BSTY::findRootBalance(){
+    findBalance(root);
+}
+
 int BSTY::findBalance(NodeT *n){
-    if(left==NULL && right==NULL){
-        cout << 0 << endl;
+    if(n->left==NULL && n->right==NULL){
+        cout << "Hello" << endl;
+        return 0;
     }
-    else if (left==NULL){
-        cout << n->right->height - 0 << endl;
+    else if (n->left==NULL){
+        cout << "hello left null" << endl;
+        cout << -n->right->height << endl;
+        return -n->right->height;
     }
-    else if (right==NULL){
-        cout << 0 - n->left->height << endl;
+    else if (n->right==NULL){
+        cout << "hello right null" << endl;
+        cout << n->left->height << endl;
+        return n->left->height;
     }
     else{
+        cout << "hello not null" << endl;
         cout << n->left->height - n->right->height << endl;
+        return n->left->height - n->right->height;
     }
-
 }
 
 /*************************************************************************************/

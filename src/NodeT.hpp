@@ -21,6 +21,7 @@ public:
 	NodeT(string x);
 	~NodeT();
 	void printNode();
+	void setBalance();
 
 };
 
